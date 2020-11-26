@@ -1,13 +1,15 @@
+let port = process.env.PORT;
 if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config();
+  port = 3000
 }
+
 const express = require('express')
 const cors = require('cors');
 const axios = require('axios')
 const path = require('path')
 let favicon = require('serve-favicon');
 
-const port = 3000
 const app = express()
 app.use(cors());
 app.use(express.static(path.join(__dirname, 'client')));
